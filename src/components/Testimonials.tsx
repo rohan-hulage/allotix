@@ -19,6 +19,8 @@ const TESTIMONIALS = [
   }
 ]
 
+
+// Testimonials component
 export function Testimonials() {
   return (
     <section id="testimonials" className="mx-auto max-w-6xl px-4 py-12 md:py-16">
