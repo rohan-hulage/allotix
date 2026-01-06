@@ -29,7 +29,7 @@ function App() {
               }
             />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/features/:slug" element={<FeatureDetail />} />
+            <Route path="/features" element={<FeatureDetail />} />
           </Routes>
         </main>
       </div>

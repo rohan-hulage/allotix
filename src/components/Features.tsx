@@ -29,7 +29,7 @@ export function Features() {
             key={feature.title}
             glowColor="132, 0, 255"
             className="cursor-pointer"
-            onClick={() => navigate(`/features/${feature.slug}`)}
+            onClick={() => navigate(`/features#${feature.slug}`)}
           >
             <Card className="h-full border border-gray-200/50 bg-white/80 backdrop-blur-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:bg-white/90 group-hover:border-transparent">
               <CardHeader className="pb-6">
