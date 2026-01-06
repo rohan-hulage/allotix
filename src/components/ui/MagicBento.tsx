@@ -6,12 +6,14 @@ interface MagicBentoProps {
   children: React.ReactNode
   className?: string
   glowColor?: string
+  onClick?: () => void
 }
 
 export function MagicBento({
   children,
   className = "",
   glowColor = "132, 0, 255",
+  onClick,
 }: MagicBentoProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -27,7 +29,7 @@ export function MagicBento({
       const y = e.clientY - rect.top
       const centerX = rect.width / 2
       const centerY = rect.height / 2
-      
+
       // Calculate distance from center for ripple intensity
       const distance = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2)
       const maxDistance = Math.sqrt(centerX ** 2 + centerY ** 2)
@@ -46,7 +48,7 @@ export function MagicBento({
           transparent 85%
         )
       `
-      
+
       // Animate the border glow using outline to prevent layout shift - increased intensity
       container.style.outline = `2px solid rgba(${glowColor}, ${intensity * 0.9})`
       container.style.outlineOffset = "0px"
@@ -63,13 +65,13 @@ export function MagicBento({
 
     const handleMouseLeave = () => {
       container.removeEventListener("mousemove", handleMouseMove)
-      
+
       // Smooth fade out
       overlay.style.opacity = "0"
       container.style.outline = "none"
       container.style.boxShadow = "none"
       container.style.transition = "all 0.5s ease-out"
-      
+
       // Reset transition after animation
       setTimeout(() => {
         container.style.transition = ""
@@ -90,7 +92,8 @@ export function MagicBento({
     <div
       ref={containerRef}
       className={`relative overflow-hidden rounded-lg transition-all duration-300 ${className}`}
-      style={{ 
+      onClick={onClick}
+      style={{
         background: "transparent",
         border: "1px solid rgba(200, 200, 200, 0.2)"
       }}
@@ -101,7 +104,7 @@ export function MagicBento({
         className="absolute inset-0 pointer-events-none rounded-lg opacity-0 transition-opacity duration-300"
         style={{ zIndex: 1 }}
       />
-      
+
       {/* Content wrapper */}
       <div className="relative" style={{ zIndex: 2 }}>
         {children}

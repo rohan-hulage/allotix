@@ -6,6 +6,7 @@ import { Features } from '@/components/Features'
 import { HowItWorks } from '@/components/HowItWorks'
 import { Testimonials } from '@/components/Testimonials'
 import ContactPage from './pages/ContactPage'
+import FeatureDetail from './pages/FeatureDetail'
 import { Footer } from '@/components/Footer'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               }
             />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/features/:slug" element={<FeatureDetail />} />
           </Routes>
         </main>
       </div>
