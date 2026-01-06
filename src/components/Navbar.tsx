@@ -13,12 +13,12 @@ export function Navbar() {
           <span className="text-lg font-semibold">Allotix</span>
         </Link>
         <nav className="flex items-center gap-3">
-          <Link
-            to="/features"
+          <a
+            href={isHome ? "#features" : "/#features"}
             className="text-sm text-muted-foreground hover:text-violet-700"
           >
             Features
-          </Link>
+          </a>
           <a
             href={isHome ? "#how" : "/#how"}
             className="text-sm text-muted-foreground hover:text-violet-700"

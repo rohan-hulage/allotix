@@ -8,10 +8,12 @@ import { Testimonials } from '@/components/Testimonials'
 import ContactPage from './pages/ContactPage'
 import FeatureDetail from './pages/FeatureDetail'
 import { Footer } from '@/components/Footer'
+import { ScrollToHash } from '@/components/ScrollToHash'
 
 function App() {
   return (
     <Router>
+      <ScrollToHash />
       <div className="relative">
         <Navbar />
         <main className="pt-14">
