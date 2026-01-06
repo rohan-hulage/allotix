@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { FEATURES } from "@/lib/constants"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
+import { Navbar } from "@/components/Navbar"
 import { ArrowLeft } from "lucide-react"
 
 export default function FeaturesPage() {
@@ -25,23 +26,38 @@ export default function FeaturesPage() {
     }, [hash])
 
     return (
-        <div className="min-h-screen bg-slate-50">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="min-h-screen relative flex flex-col bg-white overflow-hidden">
+            {/* Background for consistency */}
+            <div
+                className="absolute inset-0 z-0 pointer-events-none"
+                style={{
+                    background: `
+                    linear-gradient(to right, #fbfbfb 1px, transparent 1px),
+                    linear-gradient(to bottom, #fbfbfb 1px, transparent 1px),
+                    radial-gradient(circle 800px at 100% 0%, rgba(139, 92, 246, 0.1), transparent),
+                    radial-gradient(circle 800px at 0% 100%, rgba(139, 92, 246, 0.1), transparent)
+                `,
+                    backgroundSize: '48px 48px, 48px 48px, 100% 100%, 100% 100%'
+                }}
+            />
+
+            <Navbar />
+
+            <div className="relative flex-grow mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-32">
                 {/* Header */}
-                <div className="mb-16">
-                    <Button
-                        onClick={() => navigate("/")}
-                        variant="ghost"
-                        className="mb-8 pl-0 hover:bg-transparent hover:text-primary"
-                    >
-                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
-                    </Button>
-                    <div className="text-center max-w-3xl mx-auto">
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-                            Platform Features
+                <div className="mb-24 text-center">
+                    <Badge variant="secondary" className="mb-4 bg-violet-100 text-violet-700 hover:bg-violet-100 border-violet-200 px-4 py-1 text-sm">
+                        Core Capabilities
+                    </Badge>
+                    <div className="max-w-3xl mx-auto">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 animate-fade-up">
+                            Powerful tools for <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
+                                fair allocation.
+                            </span>
                         </h1>
-                        <p className="text-xl text-gray-600">
-                            Explore the capabilities that make Allotix the most transparent and efficient allocation system.
+                        <p className="text-xl text-gray-600 animate-fade-up" style={{ animationDelay: "100ms" }}>
+                            Explore the comprehensive suite of features that makes Allotix the trusted choice for academic scheduling.
                         </p>
                     </div>
                 </div>
