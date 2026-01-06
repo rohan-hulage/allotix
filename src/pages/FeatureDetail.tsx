@@ -45,7 +45,24 @@ export default function FeaturesPage() {
 
             <div className="relative flex-grow mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-32">
                 {/* Header */}
-                <div className="mb-24 text-center">
+                <div className="mb-24 text-center relative">
+                    <Button
+                        onClick={() => navigate("/")}
+                        variant="ghost"
+                        className="absolute left-0 top-0 -mt-16 md:-mt-0 hidden lg:flex hover:bg-transparent hover:text-violet-700 pl-0"
+                    >
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+                    </Button>
+                    <div className="lg:hidden mb-8 flex justify-start">
+                        <Button
+                            onClick={() => navigate("/")}
+                            variant="ghost"
+                            className="hover:bg-transparent hover:text-violet-700 pl-0"
+                        >
+                            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+                        </Button>
+                    </div>
+
                     <Badge variant="secondary" className="mb-4 bg-violet-100 text-violet-700 hover:bg-violet-100 border-violet-200 px-4 py-1 text-sm">
                         Core Capabilities
                     </Badge>
